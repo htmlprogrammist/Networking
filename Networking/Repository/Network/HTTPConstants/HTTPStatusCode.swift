@@ -81,7 +81,7 @@ enum HTTPStatusCode: Int {
     case notExtended = 510
     case networkAuthenticationRequired = 511
     
-    public var isSuccessStatusCode: Bool {
+    public var isSuccessful: Bool {
         switch self.rawValue {
         case 200..<300:
             return true
