@@ -23,7 +23,7 @@ final class DataLoader: NetworkManager {
     
     @discardableResult
     public func dataRequest(url: UrlCreatable, method: HTTPMethod, headers: [HTTPHeader] = [], parameters: Request.Parameters? = nil) async throws -> Data {
-        let url = try url.create()
+        let url = try url.createUrl()
         
         let request = try Request(url: url, method: method, headers: headers, parameters: parameters)
         

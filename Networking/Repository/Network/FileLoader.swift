@@ -15,7 +15,7 @@ public final class FileLoader: NetworkManager {
     
     @discardableResult
     public func downloadRequest(url: UrlCreatable, method: HTTPMethod, headers: [HTTPHeader] = [], parameters: Request.Parameters? = nil) async throws -> URL {
-        let url = try url.create()
+        let url = try url.createUrl()
         
         let request = try Request(
             url: url,

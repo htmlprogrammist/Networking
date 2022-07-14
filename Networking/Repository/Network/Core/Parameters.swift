@@ -9,7 +9,6 @@ import Foundation
 
 public extension Request {
     struct Parameters {
-        
         public struct Configuration {
             public enum Destination {
                 case query(arrayEncoding: ArrayEncoding, boolEncoding: BoolEncoding)
