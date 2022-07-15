@@ -97,8 +97,7 @@ class ViewController: UIViewController {
         DispatchQueue.main.async { [unowned self] in
             switch error {
             case .networkError(let error as NSError):
-//                alertForError(title: "Unstable internet connection", message: "Please, check your connection and then try again or use a different network")
-                alertForError(title: "\(error.code) error occured", message: "\(error.localizedDescription)")
+                alertForError(title: "Unexpected error occured", message: "\(error.localizedDescription)")
             case .parsingJSONError:
                 alertForError(title: "Server error occured", message: "An incorrect response was received from the server. Please, restart the application or try again later")
             default:
