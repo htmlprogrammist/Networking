@@ -46,8 +46,7 @@ final class NetworkManager: NetworkManagerProtocol {
             }
             
             guard error == nil, let data = data else {
-                completion(.failure(NetworkManagerError.networkError(
-                    HTTPStatusCode(rawValue: (response as? HTTPURLResponse)?.statusCode ?? -1) ?? .unknown)))
+                completion(.failure(NetworkManagerError.networkError(error!))) // we are sure error != nil
                 return
             }
             

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F01D265F2881576400B27AF7 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01D265E2881576400B27AF7 /* Endpoint.swift */; };
 		F01D2663288158F500B27AF7 /* IEXEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01D2662288158F500B27AF7 /* IEXEndpoints.swift */; };
+		F01D266528816E1500B27AF7 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01D266428816E1500B27AF7 /* Quote.swift */; };
 		F02113CE28801E3C00ACE1D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02113CD28801E3C00ACE1D7 /* AppDelegate.swift */; };
 		F02113D028801E3C00ACE1D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02113CF28801E3C00ACE1D7 /* SceneDelegate.swift */; };
 		F02113D228801E3C00ACE1D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02113D128801E3C00ACE1D7 /* ViewController.swift */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		F01D265E2881576400B27AF7 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		F01D2662288158F500B27AF7 /* IEXEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IEXEndpoints.swift; sourceTree = "<group>"; };
+		F01D266428816E1500B27AF7 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		F02113CA28801E3C00ACE1D7 /* Networking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Networking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F02113CD28801E3C00ACE1D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F02113CF28801E3C00ACE1D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,22 @@
 			path = Endpoints;
 			sourceTree = "<group>";
 		};
+		F01D266628816EFB00B27AF7 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				F01D266728816F1200B27AF7 /* Entities */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		F01D266728816F1200B27AF7 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				F01D266428816E1500B27AF7 /* Quote.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		F02113C128801E3C00ACE1D7 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +101,7 @@
 			children = (
 				F02113E228801EAC00ACE1D7 /* Application */,
 				F02113D128801E3C00ACE1D7 /* ViewController.swift */,
+				F01D266628816EFB00B27AF7 /* Domain */,
 				F02113E428801F0700ACE1D7 /* Repository */,
 				F02113E328801EC300ACE1D7 /* Supporting Files */,
 			);
@@ -212,6 +231,7 @@
 				F02113E82880216600ACE1D7 /* HTTPStatusCode.swift in Sources */,
 				F02113D228801E3C00ACE1D7 /* ViewController.swift in Sources */,
 				F0211413288038D200ACE1D7 /* NetworkManagerError.swift in Sources */,
+				F01D266528816E1500B27AF7 /* Quote.swift in Sources */,
 				F01D265F2881576400B27AF7 /* Endpoint.swift in Sources */,
 				F021140E288037C700ACE1D7 /* NetworkManager.swift in Sources */,
 				F02113CE28801E3C00ACE1D7 /* AppDelegate.swift in Sources */,
