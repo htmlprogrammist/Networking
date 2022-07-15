@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     private let activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(style: .medium)
         activityIndicator.hidesWhenStopped = true
+        activityIndicator.layer.zPosition = 1
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         return activityIndicator
     }()
@@ -27,6 +28,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         setupView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         getStocks(for: "AAPL")
         getStocksForMostActiveCompanies()
     }
@@ -36,7 +40,6 @@ class ViewController: UIViewController {
         view.backgroundColor = .systemBackground
         title = "Networking"
         view.addSubview(activityIndicator)
-        activityIndicator.startAnimating()
         view.addSubview(textView)
         
         NSLayoutConstraint.activate([
@@ -54,6 +57,7 @@ class ViewController: UIViewController {
         let endpoint = Endpoint.mostactive()
         let request = NetworkRequest(endpoint: endpoint)
         
+        activityIndicator.startAnimating()
         networkManager.perform(request: request) { [unowned self] (result: Result<[Quote], NetworkManagerError>) in
             switch result {
             case .success(let answers):
@@ -73,6 +77,7 @@ class ViewController: UIViewController {
         let endpoint = Endpoint.stock(for: company)
         let request = NetworkRequest(endpoint: endpoint)
         
+        activityIndicator.startAnimating()
         networkManager.perform(request: request) { [unowned self] (result: Result<Quote, NetworkManagerError>) in
             switch result {
             case .success(let answer):

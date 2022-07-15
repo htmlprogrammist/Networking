@@ -9,11 +9,10 @@ import Foundation
 
 extension Endpoint {
     static func mostactive() -> Self {
-        return Endpoint(
-            path: "stable/stock/market/list/mostactive",
-            queryItems: [
-                URLQueryItem(name: "token", value: apiKey)
-            ]
+        return Endpoint(path: "stable/stock/market/list/mostactive",
+                        queryItems: [
+                            URLQueryItem(name: "token", value: apiKey)
+                        ]
         )
     }
     
