@@ -8,16 +8,17 @@
 import Foundation
 
 protocol NetworkManagerProtocol {
-    //
+    /// Defined to allow the using object to change the session configuration
     var session: URLSession { get set }
-    //
+    /// Main method to perform getting data
     func perform<Model: Codable>(request: NetworkRequest, completion: @escaping (Result<Model, NetworkManagerError>) -> Void)
 }
 
+/// Allows to download data from the Internet
 final class NetworkManager: NetworkManagerProtocol {
-    // 
+    /// API for networking
     public var session: URLSession
-    /// Объект, который декодирует экземпляры типа данных из объектов JSON.
+    /// An object that decodes instances of a data type from JSON objects
     private let decoder: JSONDecoder
     
     init(session: URLSession, decoder: JSONDecoder = JSONDecoder()) {
@@ -25,10 +26,10 @@ final class NetworkManager: NetworkManagerProtocol {
         self.decoder = decoder
     }
     
-    /// <#Description#>
+    /// Performs getting data from the Internet and then decoding it with provided generic-type.
     /// - Parameters:
-    ///   - request: <#request description#>
-    ///   - completion: <#completion description#>
+    ///   - request: instance of `NetworkRequest` that has endpoint and type-safe HTTP-method and -headers for a request.
+    ///   - completion: completion handler that has `Result` enum with `Model` (success) and `NetworkManagerError` (failure) paratemets.
     public func perform<Model: Codable>(request: NetworkRequest, completion: @escaping (Result<Model, NetworkManagerError>) -> Void) {
         
         guard let url = request.endpoint.url else {

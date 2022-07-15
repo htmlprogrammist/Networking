@@ -11,6 +11,7 @@ class ViewController: UIViewController {
     
     public var networkManager: NetworkManagerProtocol!
     
+    // MARK: - Views
     private let activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView()
         activityIndicator.hidesWhenStopped = true
@@ -24,6 +25,7 @@ class ViewController: UIViewController {
         return textView
     }()
     
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,10 +33,11 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        getStocks(for: "AAPL")
+        getStocks(for: "AAPL")
         getStocksForMostActiveCompanies()
     }
     
+    // MARK: - Private methods
     private func setupView() {
         navigationController?.navigationBar.prefersLargeTitles = true
         view.backgroundColor = .white
@@ -62,7 +65,7 @@ class ViewController: UIViewController {
             switch result {
             case .success(let answers):
 //                print(answers)
-                /// URLSession под капотом работает не на главном потоке, поэтому по завершении всего необходимо вернуться на него
+                /// URLSession under the hood does not work on the main thread, so after completing everything, you need to return to it
                 DispatchQueue.main.async { [unowned self] in
                     activityIndicator.stopAnimating()
                     textView.text = "\(answers)"
@@ -82,7 +85,7 @@ class ViewController: UIViewController {
             switch result {
             case .success(let answer):
                 print(answer)
-                /// URLSession под капотом работает не на главном потоке, поэтому по завершении всего необходимо вернуться на него
+                /// URLSession under the hood does not work on the main thread, so after completing everything, you need to return to it
                 DispatchQueue.main.async { [unowned self] in
                     activityIndicator.stopAnimating()
 //                    textView.text = "\(answers)"
@@ -93,6 +96,8 @@ class ViewController: UIViewController {
         }
     }
     
+    /// Example of handling error
+    /// - Parameter error: error provided from the result of completion in `perform` method of NetworkManager
     private func handleError(error: NetworkManagerError) {
         DispatchQueue.main.async { [unowned self] in
             switch error {

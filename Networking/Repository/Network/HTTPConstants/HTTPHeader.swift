@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Type-safe HTTP-header
 public struct HTTPHeader: Hashable {
     public let name: String
     public let value: String
