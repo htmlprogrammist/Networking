@@ -3,7 +3,7 @@
 
 Основная информация лежит в 
 * [📁 Repository/Network/](/Networking/Repository/Network)
-* [Scene Delegate](/Networking/Application/AppDIContainter.swift)
+* [📁 AppDIContainer](/Networking/Application/AppDIContainter.swift)
 
 ## Цели:
 - [x] Разработать менеджер сетевых запросов для выполнения REST запросов
