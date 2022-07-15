@@ -8,13 +8,16 @@
 import Foundation
 
 protocol NetworkManagerProtocol {
+    //
     var session: URLSession { get set }
+    //
     func perform<Model: Codable>(request: NetworkRequest, completion: @escaping (Result<Model, NetworkManagerError>) -> Void)
 }
 
 final class NetworkManager: NetworkManagerProtocol {
-    
+    // 
     public var session: URLSession
+    /// Объект, который декодирует экземпляры типа данных из объектов JSON.
     private let decoder: JSONDecoder
     
     init(session: URLSession, decoder: JSONDecoder = JSONDecoder()) {
@@ -22,6 +25,10 @@ final class NetworkManager: NetworkManagerProtocol {
         self.decoder = decoder
     }
     
+    /// <#Description#>
+    /// - Parameters:
+    ///   - request: <#request description#>
+    ///   - completion: <#completion description#>
     public func perform<Model: Codable>(request: NetworkRequest, completion: @escaping (Result<Model, NetworkManagerError>) -> Void) {
         
         guard let url = request.endpoint.url else {

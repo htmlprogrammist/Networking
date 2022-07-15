@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     public var networkManager: NetworkManagerProtocol!
     
     private let activityIndicator: UIActivityIndicatorView = {
-        let activityIndicator = UIActivityIndicatorView(style: .medium)
+        let activityIndicator = UIActivityIndicatorView()
         activityIndicator.hidesWhenStopped = true
         activityIndicator.layer.zPosition = 1
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
@@ -31,13 +31,13 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        getStocks(for: "AAPL")
+//        getStocks(for: "AAPL")
         getStocksForMostActiveCompanies()
     }
     
     private func setupView() {
         navigationController?.navigationBar.prefersLargeTitles = true
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .white
         title = "Networking"
         view.addSubview(activityIndicator)
         view.addSubview(textView)
@@ -62,7 +62,7 @@ class ViewController: UIViewController {
             switch result {
             case .success(let answers):
 //                print(answers)
-                
+                /// URLSession под капотом работает не на главном потоке, поэтому по завершении всего необходимо вернуться на него
                 DispatchQueue.main.async { [unowned self] in
                     activityIndicator.stopAnimating()
                     textView.text = "\(answers)"
@@ -82,7 +82,7 @@ class ViewController: UIViewController {
             switch result {
             case .success(let answer):
                 print(answer)
-                
+                /// URLSession под капотом работает не на главном потоке, поэтому по завершении всего необходимо вернуться на него
                 DispatchQueue.main.async { [unowned self] in
                     activityIndicator.stopAnimating()
 //                    textView.text = "\(answers)"
