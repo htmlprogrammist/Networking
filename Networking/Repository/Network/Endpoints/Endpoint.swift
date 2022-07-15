@@ -7,7 +7,7 @@
 
 import Foundation
 
-// 
+/// An endpoint is an access to a route by a separate HTTP method. The endpoint performs a specific task, accepts parameters and returns data to the Client.
 struct Endpoint {
     /// API key/token
     static let apiKey = "pk_aca08d8cf58e4441b8e436ef3646b1fb"
