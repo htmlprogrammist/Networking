@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F01D265F2881576400B27AF7 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01D265E2881576400B27AF7 /* Endpoint.swift */; };
+		F01D2663288158F500B27AF7 /* IEXEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01D2662288158F500B27AF7 /* IEXEndpoints.swift */; };
 		F02113CE28801E3C00ACE1D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02113CD28801E3C00ACE1D7 /* AppDelegate.swift */; };
 		F02113D028801E3C00ACE1D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02113CF28801E3C00ACE1D7 /* SceneDelegate.swift */; };
 		F02113D228801E3C00ACE1D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02113D128801E3C00ACE1D7 /* ViewController.swift */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F01D265E2881576400B27AF7 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		F01D2662288158F500B27AF7 /* IEXEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IEXEndpoints.swift; sourceTree = "<group>"; };
 		F02113CA28801E3C00ACE1D7 /* Networking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Networking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F02113CD28801E3C00ACE1D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F02113CF28801E3C00ACE1D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +52,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F01D265D2881566000B27AF7 /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				F01D265E2881576400B27AF7 /* Endpoint.swift */,
+				F01D2662288158F500B27AF7 /* IEXEndpoints.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
 		F02113C128801E3C00ACE1D7 = {
 			isa = PBXGroup;
 			children = (
@@ -107,9 +120,10 @@
 			isa = PBXGroup;
 			children = (
 				F021140D288037C700ACE1D7 /* NetworkManager.swift */,
-				F0211412288038D200ACE1D7 /* NetworkManagerError.swift */,
-				F02114112880387300ACE1D7 /* HTTPConstants */,
 				F02114142880424200ACE1D7 /* NetworkRequest.swift */,
+				F0211412288038D200ACE1D7 /* NetworkManagerError.swift */,
+				F01D265D2881566000B27AF7 /* Endpoints */,
+				F02114112880387300ACE1D7 /* HTTPConstants */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -198,11 +212,13 @@
 				F02113E82880216600ACE1D7 /* HTTPStatusCode.swift in Sources */,
 				F02113D228801E3C00ACE1D7 /* ViewController.swift in Sources */,
 				F0211413288038D200ACE1D7 /* NetworkManagerError.swift in Sources */,
+				F01D265F2881576400B27AF7 /* Endpoint.swift in Sources */,
 				F021140E288037C700ACE1D7 /* NetworkManager.swift in Sources */,
 				F02113CE28801E3C00ACE1D7 /* AppDelegate.swift in Sources */,
 				F02114102880386400ACE1D7 /* HTTPMethod.swift in Sources */,
 				F02114152880424200ACE1D7 /* NetworkRequest.swift in Sources */,
 				F02113D028801E3C00ACE1D7 /* SceneDelegate.swift in Sources */,
+				F01D2663288158F500B27AF7 /* IEXEndpoints.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

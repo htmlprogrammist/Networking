@@ -8,6 +8,6 @@
 enum NetworkManagerError: Error {
     case invalidURL
     case retainCycle
-    case networkError
+    case networkError(HTTPStatusCode)
     case parsingJSONError
 }

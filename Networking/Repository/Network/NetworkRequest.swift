@@ -8,8 +8,7 @@
 import Foundation
 
 struct NetworkRequest {
-//    var urlString: String
+    var endpoint: Endpoint
     var method: HTTPMethod = .get
     var httpHeaderFields: [HTTPHeader] = []
-    var parameters: [String: String] = [:]
 }

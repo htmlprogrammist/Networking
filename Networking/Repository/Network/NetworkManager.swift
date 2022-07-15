@@ -24,22 +24,16 @@ final class NetworkManager: NetworkManagerProtocol {
     
     public func perform<Model: Codable>(request: NetworkRequest, completion: @escaping (Result<Model, NetworkManagerError>) -> Void) {
         
-        guard let url = URL(string: request.urlString),
-              var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
-        else {
-            completion(.failure(NetworkManagerError.invalidURL))
-            return
-        }
-        urlComponents.queryItems = request.parameters.map { URLQueryItem(name: $0.key, value: $0.value )}
-        
-        guard let url = urlComponents.url else {
+        guard let url = request.endpoint.url else {
             completion(.failure(NetworkManagerError.invalidURL))
             return
         }
         
         var urlRequest = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 3)
         urlRequest.httpMethod = request.method.rawValue
-        urlRequest.allHTTPHeaderFields = request.httpHeaderFields
+        urlRequest.allHTTPHeaderFields = request.httpHeaderFields.reduce(into: [String: String](), { partialResult, header in
+            partialResult[header.name, default: ""] = header.value
+        })
         
         let dataTask = session.dataTask(with: urlRequest, completionHandler: { [weak self] (data, response, error) in
             
@@ -52,7 +46,8 @@ final class NetworkManager: NetworkManagerProtocol {
             }
             
             guard error == nil, let data = data else {
-                completion(.failure(NetworkManagerError.networkError))
+                completion(.failure(NetworkManagerError.networkError(
+                    HTTPStatusCode(rawValue: (response as? HTTPURLResponse)?.statusCode ?? -1) ?? .unknown)))
                 return
             }
             
