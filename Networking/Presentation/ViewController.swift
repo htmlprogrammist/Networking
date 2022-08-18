@@ -33,9 +33,8 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        getStocks(for: "AAPL")
-//        getStocksForMostActiveCompanies()
-        getRecipes()
+        getStocks(for: "AAPL")
+        getStocksForMostActiveCompanies()
     }
     
     // MARK: - Private methods
@@ -90,26 +89,6 @@ class ViewController: UIViewController {
                 DispatchQueue.main.async { [unowned self] in
                     activityIndicator.stopAnimating()
 //                    textView.text = "\(answers)"
-                }
-            case .failure(let error):
-                handleError(error: error)
-            }
-        }
-    }
-    
-    private func getRecipes() {
-        let endpoint = Endpoint(path: "")
-        let request = NetworkRequest(endpoint: endpoint)
-        
-        activityIndicator.startAnimating()
-        networkManager.perform(request: request) { [unowned self] (result: Result<Meals, NetworkManagerError>) in
-            switch result {
-            case .success(let recipe):
-//                print(recipe)
-                /// URLSession under the hood does not work on the main thread, so after completing everything, you need to return to it
-                DispatchQueue.main.async { [unowned self] in
-                    activityIndicator.stopAnimating()
-                    textView.text = "\(recipe.meals[0]["strIngredient7"]! ?? "")"
                 }
             case .failure(let error):
                 handleError(error: error)
