@@ -11,19 +11,20 @@ import Foundation
 struct Endpoint {
     /// API key/token
     static let apiKey = "pk_aca08d8cf58e4441b8e436ef3646b1fb"
-    
+
     /// Path to an endpoint
     let path: String
     /// Parameters for an endpoint
     var paratemets: [String: String] = [:]
-    
+
     /// Property that computes the `url` of the instance
-    var url: URL? {
-        var components = URLComponents()
-        components.scheme = "https"
-        components.host = "cloud.iexapis.com"
-        components.path = "/" + path
-        components.queryItems = paratemets.map { URLQueryItem(name: $0.key, value: $0.value) }
-        return components.url
-    }
+//    var url: URL? {
+//        var components = URLComponents()
+//        components.scheme = "https"
+//        components.host = "cloud.iexapis.com"
+//        components.path = "/" + path
+//        components.queryItems = paratemets.map { URLQueryItem(name: $0.key, value: $0.value) }
+//        return components.url
+//    }
+    var url = URL(string: "https://themealdb.com/api/json/v1/1/random.php")
 }
