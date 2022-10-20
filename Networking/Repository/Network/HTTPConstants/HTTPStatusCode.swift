@@ -9,13 +9,13 @@
 enum HTTPStatusCode: Int {
     case unknown = -1
     
-    // Informational response
+    /// # Informational response
     case `continue` = 100
     case switchingProtocols = 101
     case processing = 102
     case earlyHints = 103
     
-    // Success
+    /// # Success
     case ok = 200
     case created = 201
     case accepted = 202
@@ -27,7 +27,7 @@ enum HTTPStatusCode: Int {
     case alreadyReported = 208
     case used = 226
     
-    // Redirection
+    /// # Redirection
     case multipleChoices = 300
     case movedPermanently = 301
     case found = 302
@@ -38,7 +38,7 @@ enum HTTPStatusCode: Int {
     case temporaryRedirect = 307
     case permanentRedirect = 308
     
-    // Client errors
+    /// # Client errors
     case badRequest = 400
     case unauthorized = 401
     case paymentRequired = 402
@@ -69,7 +69,7 @@ enum HTTPStatusCode: Int {
     case requestHeaderFieldsTooLarge = 431
     case unavailableForLegalReasons = 451
     
-    // Server errors
+    /// # Server errors
     case internalServerError = 500
     case notImplemented = 501
     case badGateway = 502
@@ -82,6 +82,7 @@ enum HTTPStatusCode: Int {
     case notExtended = 510
     case networkAuthenticationRequired = 511
     
+    /// Defines whether the status code (`self`) is successful or not.
     public var isSuccessful: Bool {
         switch self.rawValue {
         case 200..<300:
